@@ -1,6 +1,6 @@
 {
   "name": "@kicearena/exam-paper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Korean exam-style math documents, KaTeX prose and adaptive two-column print layouts.",
   "repository": {

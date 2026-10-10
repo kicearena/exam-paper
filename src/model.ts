@@ -18,5 +18,5 @@ export type ExamDocumentItem = {
   pointValue?: number;
   content: ReactNode;
   printContent?: ReactNode;
-  state?: "correct" | "wrong" | "empty";
+  state?: string;
 };

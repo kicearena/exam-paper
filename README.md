@@ -25,7 +25,7 @@ GitHub Packages needs authentication even for public npm packages. Set a read:pa
 ```
 
 ```sh
-bun add --exact @kicearena/exam-paper@0.1.0
+bun add --exact @kicearena/exam-paper@0.1.1
 ```
 
 ```tsx
