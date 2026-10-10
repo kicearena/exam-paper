@@ -109,8 +109,7 @@
   }
 
   html,
-  body,
-  :global(#root) {
+  body {
     min-height: 100% !important;
     margin: 0 !important;
     background: #fff !important;
@@ -119,33 +118,8 @@
     -webkit-print-color-adjust: economy;
   }
 
-  [data-print-hide],
-  :global(.site-header),
-  :global(.site-footer),
-  :global(.exam-site-nav),
-  [data-site-nav],
-  [aria-label="주요 메뉴"],
-  :global(.privacy-choice-footer),
-  :global(.analytics-privacy-settings),
-  :global(.pending-legal-notices),
-  [data-exam-context],
-  :global(.contest-notice-banner),
-  [data-exam-workspace],
-  [data-exam-navigation],
-  [data-exam-answer],
-  [data-exam-toolbar],
-  :global(.paper-followup),
-  [data-arena-layout] > :global(.arena-exit-dialog),
-  [data-exam-safe-bottom] {
+  [data-print-hide] {
     display: none !important;
-  }
-
-  [data-arena-layout] {
-    display: block !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #fff !important;
   }
 
   .printable-exam-document {

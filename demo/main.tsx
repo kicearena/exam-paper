@@ -56,7 +56,7 @@ function App() {
   const brand = <strong>DEMO EXAM</strong>;
   return (
     <>
-      <main>
+      <main data-print-hide>
         <nav>
           <small>KICE ARENA / OPEN SOURCE · MIT</small>
           <div>

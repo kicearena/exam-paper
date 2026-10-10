@@ -13,7 +13,7 @@ Korean exam-style React documents: **LaTeX math, prose, condition boxes and adap
 - Prepares two-column printable documents, expands tall/wide problems and fits overflowing math.
 - Waits for fonts and images before invoking browser print; reports failed image preparation.
 
-This is an HTML/KaTeX renderer and browser print layout, not a standalone TeX compiler. Scoring, answers, exam access, navigation, recovery and submission remain in your application. Supply your own brand slot, instructions, public content and fonts.
+This is an HTML/KaTeX renderer and browser print layout, not a standalone TeX compiler. Scoring, answers, exam access, navigation, recovery and submission remain in your application. Supply your own brand slot, instructions, public content and fonts. Mark screen-only host chrome with `data-print-hide`; application shell selectors are not owned by this library.
 
 ## Install
 
@@ -25,7 +25,7 @@ GitHub Packages needs authentication even for public npm packages. Set a read:pa
 ```
 
 ```sh
-bun add --exact @kicearena/exam-paper@0.1.1
+bun add --exact @kicearena/exam-paper@0.1.2
 ```
 
 ```tsx
