@@ -1,0 +1,104 @@
+.inline {
+  /* Expose KaTeX's baseline even when this wrapper is horizontally scrollable. */
+  display: inline-flex;
+  align-items: baseline;
+  max-width: 100%;
+  min-width: 0;
+  vertical-align: baseline;
+  overflow-x: auto;
+  /* Horizontal containment must not turn a fraction's descender into a vertical scroller. */
+  overflow-y: hidden;
+  /* Reserve room for italic glyph overhang and inline box strokes. */
+  padding-inline: 2px;
+  padding-bottom: 0.5em;
+}
+
+.inline > :global(.katex) {
+  flex-shrink: 0;
+}
+
+.display {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em 0;
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+.display :global(.katex-display) {
+  margin: 0;
+}
+
+/* KaTeX base groups remain atomic, including fractions and scalable brackets. */
+.display :global(.katex-display) > :global(.katex) {
+  white-space: normal;
+}
+
+.box {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid currentColor;
+  padding: 0.55em 0.75em;
+}
+
+/* Only verified text-only fragments may flow across lines inside KaTeX. */
+.prose,
+.prose :global(.katex-html) > :global(.base) {
+  display: inline;
+}
+
+.prose {
+  overflow: visible;
+  padding: 0;
+}
+
+.prose :global(.strut) {
+  display: none;
+}
+
+.prose :global(.katex),
+.prose :global(.katex-html) > :global(.base),
+.prose :global(.mord):global(.text) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.choice :global(.katex) {
+  font-size: 1em;
+}
+@media print {
+  .box {
+    width: auto;
+    max-width: 100%;
+    margin-inline: 0;
+    break-inside: auto;
+    page-break-inside: auto;
+    white-space: normal;
+  }
+}
+
+.inline :global(.katex),
+.display :global(.katex) {
+  font-size: var(--math-font-size, 1.21em);
+}
+.choice :global(.katex) {
+  font-size: 1em;
+}
+
+.rating {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  text-align: center;
+}
+@media (max-width: 560px) {
+  .rating {
+    font-size: 0.82em;
+  }
+}
+.preview {
+  font-size: clamp(14px, 1.25vw, 18px);
+}

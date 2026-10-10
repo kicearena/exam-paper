@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "KICE Exam Serif";
+  src: url("/fonts/NotoSerifKR-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f7f7f2;
+  color: #20231f;
+  font-family: system-ui, sans-serif;
+  --font-sans: system-ui, sans-serif;
+  --font-serif: "KICE Exam Serif", serif;
+  --ink: #171816;
+  --muted: #75766f;
+  --paper: #fffefa;
+  --border: #e1e1d9;
+  --gold: #b49a43;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 32px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+small {
+  font:
+    11px ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+}
+h1 {
+  font-size: 38px;
+  margin: 40px 0 12px;
+  letter-spacing: -0.04em;
+}
+p {
+  color: #70776b;
+  line-height: 1.7;
+}
+button {
+  font: inherit;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background: #fffefa;
+  margin-left: 8px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 20px 16px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+}

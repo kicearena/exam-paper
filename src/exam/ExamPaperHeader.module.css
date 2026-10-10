@@ -1,0 +1,225 @@
+.paper-head {
+  padding: 22px 27px 0;
+}
+
+.exam-paper-head__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.exam-paper-head__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.exam-paper-head__brand img {
+  width: 24px;
+  height: 24px;
+}
+
+.exam-paper-head__brand strong {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.exam-paper-head__summary {
+  white-space: nowrap;
+}
+
+.exam-paper-head__title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 17px 0 13px;
+  font-family: var(--font-serif, serif);
+  text-align: left;
+}
+
+.paper-head .exam-edition {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.paper-head h2 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-serif, serif);
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.paper-instruction {
+  padding: 10px 0 12px;
+  border-bottom: 1px solid #aaa;
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+@media (max-width: 1100px) {
+  .paper-head {
+    padding: 25px 22px 0;
+  }
+
+  .paper-head .exam-edition {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 800px) {
+  .paper-head h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .paper-head {
+    padding: 27px 21px 0;
+  }
+
+  .paper-head h2 {
+    font-size: 18px;
+  }
+
+  .paper-instruction {
+    font-size: 9px;
+  }
+
+  .paper-head {
+    padding: 16px 18px 0;
+  }
+
+  .exam-paper-head__topline {
+    padding-bottom: 10px;
+  }
+
+  .exam-paper-head__title {
+    display: block;
+    padding: 12px 0 10px;
+  }
+
+  .exam-paper-head__title h2 {
+    margin-top: 3px;
+  }
+}
+
+.problem-focus-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto) auto;
+  align-items: center;
+  gap: clamp(10px, 2.2vw, 22px);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
+}
+
+.problem-focus-head div {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.problem-focus-head span {
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.problem-focus-head strong {
+  position: relative;
+  width: fit-content;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px 7px 0;
+}
+
+.problem-focus-head .problem-attempt-count {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.problem-focus-head em {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+@media (max-width: 760px) {
+  .problem-focus-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title difficulty"
+      "items items";
+    gap: 10px 14px;
+  }
+
+  .problem-focus-head > div {
+    grid-area: title;
+  }
+
+  .problem-focus-head > em {
+    grid-area: difficulty;
+  }
+}
+
+@media (max-width: 640px) {
+  .problem-focus-head {
+    align-items: flex-start;
+  }
+
+  .problem-focus-head strong {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 420px) {
+  .problem-focus-head {
+    gap: 10px;
+  }
+
+  .problem-focus-head strong {
+    font-size: 30px;
+  }
+
+  .problem-focus-head em {
+    padding-inline: 9px;
+  }
+}
+
+.problem-focus-head {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.problem-focus-head strong {
+  font-size: 30px;
+}

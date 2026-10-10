@@ -1,0 +1,186 @@
+.printable-exam-document {
+  display: none;
+  box-sizing: border-box;
+  color: #111;
+  background: #fff;
+  font-family: var(--exam-document-font, var(--font-serif, serif));
+}
+
+.printable-exam-document[data-measuring] {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: -100000px;
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Measure against the A4 page box, including its paper margins, even when
+   beforeprint fires while the browser still has a wide screen viewport. */
+.printable-exam-document[data-measuring] {
+  width: 210mm;
+  padding: 8mm 9mm 9mm;
+}
+
+.printable-exam-header {
+  display: grid;
+  grid-template-columns: minmax(45mm, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 10mm;
+  min-height: 18mm;
+  margin-bottom: 8mm;
+  padding: 0 2mm 5mm;
+  border-bottom: 0.35mm solid #222;
+  break-after: avoid;
+}
+
+.printable-exam-brand {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 10pt;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.printable-exam-brand img {
+  width: 12mm;
+  height: 12mm;
+  object-fit: contain;
+}
+
+.printable-exam-header h1 {
+  margin: 0;
+  font-family: var(--exam-document-font, var(--font-serif, serif));
+  font-size: 11pt;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  letter-spacing: 0;
+}
+
+.printable-exam-problems {
+  column-count: 2;
+  column-gap: 9mm;
+  column-fill: balance;
+}
+
+.printable-exam-problem {
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 7mm;
+  padding-bottom: 4mm;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  font-size: 9.3pt;
+  line-height: 1.75;
+  vertical-align: top;
+}
+
+.printable-exam-problem[data-wide] {
+  display: block;
+  column-span: all;
+}
+
+.printable-exam-problem-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4mm;
+  margin-bottom: 2mm;
+}
+
+.printable-exam-problem-number strong {
+  font-size: 11pt;
+}
+
+.printable-exam-problem-number span {
+  font-size: 7.5pt;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+    background: #fff;
+  }
+
+  html,
+  body,
+  :global(#root) {
+    min-height: 100% !important;
+    margin: 0 !important;
+    background: #fff !important;
+    color: #111 !important;
+    print-color-adjust: economy;
+    -webkit-print-color-adjust: economy;
+  }
+
+  [data-print-hide],
+  :global(.site-header),
+  :global(.site-footer),
+  :global(.exam-site-nav),
+  [data-site-nav],
+  [aria-label="주요 메뉴"],
+  :global(.privacy-choice-footer),
+  :global(.analytics-privacy-settings),
+  :global(.pending-legal-notices),
+  [data-exam-context],
+  :global(.contest-notice-banner),
+  [data-exam-workspace],
+  [data-exam-navigation],
+  [data-exam-answer],
+  [data-exam-toolbar],
+  :global(.paper-followup),
+  [data-arena-layout] > :global(.arena-exit-dialog),
+  [data-exam-safe-bottom] {
+    display: none !important;
+  }
+
+  [data-arena-layout] {
+    display: block !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  .printable-exam-document {
+    position: static;
+    display: block !important;
+    width: auto;
+    margin: 0;
+    padding: 8mm 9mm 9mm;
+    background: #fff !important;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    visibility: visible;
+  }
+
+  .printable-exam-document,
+  .printable-exam-document * {
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+
+  .printable-exam-document {
+    background-color: #fff !important;
+  }
+
+  .printable-exam-problem:not([data-wide]) {
+    box-sizing: border-box;
+    min-height: 72mm;
+  }
+
+  .printable-exam-problem[data-wide] {
+    height: auto;
+  }
+}
+
+.printable-exam-document[data-measuring] .printable-exam-problem {
+  height: auto !important;
+}

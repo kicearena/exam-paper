@@ -1,0 +1,130 @@
+/* Paper geometry and paged/continuous question variants are owned here. */
+.exam-paper {
+  border: 1px solid var(--border);
+  background: var(--paper);
+  overflow: hidden;
+}
+.question-block {
+  position: relative;
+  min-height: max(352px, calc(100dvh - 360px));
+  padding: 29px 30px 44px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: var(--exam-anchor-offset, 240px);
+  font-family: var(--font-serif, serif);
+  font-size: 17px;
+  line-height: 2.2;
+}
+.question-block.active-question::before {
+  position: absolute;
+  top: 31px;
+  left: 0;
+  width: 3px;
+  height: 28px;
+  background: var(--gold, #b49a43);
+  content: "";
+}
+.question-block > small {
+  position: absolute;
+  right: 27px;
+  bottom: 16px;
+  color: #999b90;
+  font-family: var(--font-sans);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+.question-block.continuous {
+  min-height: 352px;
+}
+.question-block.continuous:nth-of-type(2n) {
+  min-height: 375px;
+}
+.question-block.paged {
+  min-height: 520px;
+  border-bottom: 0;
+}
+.paper-end {
+  padding: 30px 24px;
+  min-height: 130.375px;
+  font-family: var(--font-serif, serif);
+  font-size: 14px;
+  text-align: center;
+}
+.paper-end small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 9px;
+}
+@media (max-width: 1100px) {
+  .question-block {
+    padding: 25px 23px 42px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 800px) {
+  .question-block {
+    min-height: max(355px, calc(100dvh - 300px));
+    font-size: 15px;
+    line-height: 2.3;
+  }
+  .question-block.continuous,
+  .question-block.continuous:nth-of-type(2n) {
+    min-height: 330px;
+  }
+  .question-block.paged {
+    min-height: 420px;
+  }
+}
+@media (max-width: 600px) {
+  .question-block {
+    min-height: max(355px, calc(100dvh - 245px));
+    padding: 25px 24px 40px;
+    scroll-margin-top: var(--exam-anchor-offset, 214px);
+    font-size: 16px;
+    line-height: 2.2;
+  }
+  .question-block.continuous,
+  .question-block.continuous:nth-of-type(2n) {
+    min-height: 355px;
+  }
+  .question-block.paged {
+    min-height: 410px;
+  }
+}
+/* The editor uses the same paper renderer with its existing compact preview chrome. */
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: clamp(14px, 2vw, 26px);
+  font-family: var(--font-sans);
+  border: 1px solid var(--border);
+  background: var(--paper);
+  box-shadow: none;
+}
+.preview-body {
+  position: relative;
+  margin-top: 0;
+  background: var(--paper);
+  border: 0;
+  overflow: hidden;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+}
+@media (max-width: 640px) {
+  .preview {
+    padding-bottom: 0;
+  }
+  .preview-body {
+    max-height: none;
+    overflow: visible;
+    place-items: start center;
+  }
+}

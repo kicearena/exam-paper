@@ -1,0 +1,16 @@
+.text,
+.ticket-date {
+  display: inline-block;
+  width: var(--skeleton-width);
+  max-width: 100%;
+  vertical-align: middle;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: 0.09;
+}
+.text {
+  height: clamp(10px, 0.6em, 36px);
+}
+.ticket-date {
+  height: clamp(28px, 0.6em, 72px);
+}
