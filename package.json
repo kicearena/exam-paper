@@ -1,15 +1,11 @@
 {
   "name": "@kicearena/exam-paper",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "description": "Korean exam-style math documents, KaTeX prose and adaptive two-column print layouts.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kicearena/exam-paper.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
   },
   "files": [
     "dist",

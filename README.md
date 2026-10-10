@@ -2,7 +2,7 @@
 
 Korean exam-style React documents: **LaTeX math, prose, condition boxes and adaptive A4 print layout**.
 
-[MIT](LICENSE) · React 19 · KaTeX · ESM + TypeScript + scoped CSS
+[MIT](LICENSE) · React 19 · KaTeX · ESM + TypeScript + scoped CSS · [![npm version](https://img.shields.io/npm/v/%40kicearena%2Fexam-paper)](https://www.npmjs.com/package/@kicearena/exam-paper)
 
 ![Exam paper showcase](docs/images/preview.png)
 
@@ -17,15 +17,12 @@ This is an HTML/KaTeX renderer and browser print layout, not a standalone TeX co
 
 ## Install
 
-GitHub Packages needs authentication even for public npm packages. Set a read:packages token in `NODE_AUTH_TOKEN` and this project `.npmrc`:
-
-```ini
-@kicearena:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-```
+Install directly from the public npm registry:
 
 ```sh
-bun add --exact @kicearena/exam-paper@0.1.3
+npm install --save-exact @kicearena/exam-paper@0.1.4
+# or
+bun add --exact @kicearena/exam-paper@0.1.4
 ```
 
 ```tsx
