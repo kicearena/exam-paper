@@ -5,7 +5,7 @@ import {
   PrintableExamDocument,
   useExamPrint,
   ProblemContent,
-  MathHtml,
+  ProblemChoices,
 } from "../src/index.js";
 import "./style.css";
 const fixtures = [
@@ -46,8 +46,26 @@ const items = fixtures.map((problem, i) => ({
   id: `q${i + 1}`,
   number: problem.number,
   pointValue: 4,
-  content: <ProblemContent problem={problem} />,
-  printContent: <ProblemContent presentation="print" problem={problem} />,
+  content: (
+    <>
+      <ProblemContent problem={problem} />
+      {i === 0 && (
+        <ProblemChoices number={1} choices={["2", "4", "6", "8", "10"]} />
+      )}
+    </>
+  ),
+  printContent: (
+    <>
+      <ProblemContent presentation="print" problem={problem} />
+      {i === 0 && (
+        <ProblemChoices
+          number={1}
+          presentation="print"
+          choices={["2", "4", "6", "8", "10"]}
+        />
+      )}
+    </>
+  ),
 }));
 function App() {
   const [view, setView] = useState<"continuous" | "paged">("continuous");

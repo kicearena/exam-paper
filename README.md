@@ -25,7 +25,7 @@ GitHub Packages needs authentication even for public npm packages. Set a read:pa
 ```
 
 ```sh
-bun add --exact @kicearena/exam-paper@0.1.2
+bun add --exact @kicearena/exam-paper@0.1.3
 ```
 
 ```tsx
@@ -47,7 +47,7 @@ import "@kicearena/exam-paper/styles.css";
 <MathHtml latex={String.raw`\int_0^1 x^2\,dx`} displayMode />;
 ```
 
-`ProblemBodyBlock` is a display schema. Choice blocks are left to the host's answer controls. `ExamDocumentPaper` receives prepared React content, item IDs, active ID, view and an `onItemRef` callback. `PrintableExamDocument` and `useExamPrint(printReady)` compose the printable copy. `brand` is caller-owned React content. `MathHtml` uses KaTeX with `trust:false`; invalid formulas remain visible as errors. Text placeholders `{}` bind the supplied `inlineMath` entries in order.
+`ProblemBodyBlock` is a display schema. `ProblemChoices` renders inert numbered choices in document/public/print presentations; interactive answer controls remain in the host. `ExamDocumentPaper` receives prepared React content, item IDs, active ID, view and an `onItemRef` callback. `PrintableExamDocument` and `useExamPrint(printReady)` compose the printable copy. `brand` is caller-owned React content. `MathHtml` uses KaTeX with `trust:false`; invalid formulas remain visible as errors. Text placeholders `{}` bind the supplied `inlineMath` entries in order.
 
 Theme variables include `--ink`, `--paper`, `--border`, `--muted`, `--gold`, `--font-sans`, `--font-serif` and optionally `--exam-document-font`. The default problem font falls back to Korean serif fonts. The demo supplies an existing OFL font with its own license; it is not included in the npm library.
 

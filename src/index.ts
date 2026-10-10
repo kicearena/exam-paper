@@ -9,3 +9,4 @@ export * from "./exam/ExamPaperHeader.js";
 export * from "./exam/ExamDocumentPaper.js";
 export * from "./exam/PrintableExamDocument.js";
 export * from "./exam/printLayout.js";
+export * from "./problem/ProblemChoices.js";
