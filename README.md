@@ -64,3 +64,26 @@ The editable demo toggles document layout and prints synthetic math problems. Te
 ## License
 
 [MIT](LICENSE) © 2026 KICE Arena contributors. KaTeX and the demo font retain their respective licenses. This package is not an official examination authority publication.
+
+### Mixed-content boxes and tabular choices
+
+`ProblemBodyBlock` includes a `box` with `variant: "proof" | "conditions"` and
+`blocks: ProblemContentBlock[]`. Its children retain paragraph, display formula
+and diagram boundaries. Boxes cannot contain other boxes or choices.
+
+For a table, supply `columns` to the `choices` block and `ProblemChoices` component.
+Column headers are plain text; each choice is a KaTeX row with top-level `&` cell
+separators. Nested matrices keep their own separators. Row lengths must match the
+header count. Selection remains the row's original one-based answer index.
+
+```tsx
+<ProblemChoices
+  number={27}
+  columns={["(가)", "(나)", "(다)"]}
+  choices={[String.raw`\le & f'(c) & \ge`, String.raw`\le & f''(c) & \le`]}
+/>
+```
+
+Normal choices wrap according to their content width. Diagram widths are bounded
+by their containing box. Consumers must validate this schema, traverse boxed assets
+for access control and exports, and pass `columns` through every choice presentation.
