@@ -48,6 +48,20 @@ const ProblemBlock = memo(function ProblemBlock({
   preview: boolean;
   printMode: boolean;
 }) {
+  if (block.kind === "box") {
+    return (
+      <div className={styles.box} data-problem-box={block.variant}>
+        {block.blocks.map((child, index) => (
+          <ProblemBlock
+            key={index}
+            block={child}
+            preview={preview}
+            printMode={printMode}
+          />
+        ))}
+      </div>
+    );
+  }
   if (block.kind === "paragraph") {
     return (
       <p className={styles["paragraph"]}>
